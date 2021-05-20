@@ -1,0 +1,44 @@
+<html>
+<head>
+<meta charset="UTF-8">
+    <title>离线东</title>
+    <SCRIPT type="text/javascript">        
+			var xiabanshijian = (new Date()).toLocaleDateString().replace(/\//g,'-') + ' ' + '17:30';
+			var xiabanDate= (new Date(xiabanshijian));
+            function CountDown() {
+				var count = xiabanDate - new Date() ;
+				var dong= '';
+				if(count > 0){
+					dong = count/1000/60/2;
+					dong = dong.toFixed(2) + '东'
+				}else{
+					dong = '已下班';
+					clearInterval(timer);
+				}
+				document.getElementById("timerSeconds").innerHTML = dong ;
+            }
+            timer = setInterval("CountDown()", 1000);                
+    </SCRIPT>
+    <style type="text/css">
+        body{
+            background-color: gray;
+            text-align: center;
+        }
+        #timerSeconds{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin: -70px 0 0 -200px;
+            width: 400px;
+            height: 300px;
+            //border: 1px solid red;
+        }
+    </style>
+</head>
+
+<body>
+    <span> </span>
+    <div id="timerSeconds" style="color:white;  font-size: 70"></div>
+</body>
+
+</html>
