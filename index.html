@@ -1,7 +1,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-    <title>离线东</title>
+    <title>永续东</title>
     <SCRIPT type="text/javascript">        
 			var xiabanshijian = (new Date()).toLocaleDateString().replace(/\//g,'-') + ' ' + '17:30';
 			var xiabanDate= (new Date(xiabanshijian));
@@ -12,7 +12,7 @@
 					dong = count/1000/60/2;
 					dong = dong.toFixed(2) + '东'
 				}else{
-					dong = '已下班';
+					dong = '下班啦';
 					clearInterval(timer);
 				}
 				document.getElementById("timerSeconds").innerHTML = dong ;
