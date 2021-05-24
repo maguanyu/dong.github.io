@@ -3,28 +3,32 @@
 <meta charset="UTF-8">
     <title>永续东</title>
     <SCRIPT type="text/javascript">        
-			var xiabanshijian = (new Date()).toLocaleDateString().replace(/\//g,'-') + ' ' + '17:30';
-			var xiabanDate= (new Date(xiabanshijian));
+			var offTime = (new Date()).toLocaleDateString().replace(/\//g,'-') + ' ' + '17:30';
+			var offDate= (new Date(offTime));
             function CountDown() {
-				var count = xiabanDate - new Date() ;
+				var now = new Date();
+				var time = now.toLocaleTimeString();
+				var date = now.toLocaleDateString();
+ 
+				var count = offDate - now ;
 				var dong= '';
 				if(count > 0){
 					dong = count/1000/60/2;
 					dong = dong.toFixed(2) + '东'
 				}else{
-					dong = '下班啦';
-					clearInterval(timer);
+					dong = '已下班';
+					//clearInterval(timer);
 				}
-				document.getElementById("timerSeconds").innerHTML = dong ;
+				document.getElementById("timeDiv").innerHTML = date+"&nbsp"+time;
+				document.getElementById("dongDiv").innerHTML = dong;
             }
             timer = setInterval("CountDown()", 1000);                
     </SCRIPT>
     <style type="text/css">
         body{
-            background-color: gray;
             text-align: center;
         }
-        #timerSeconds{
+        #dongDiv{
             position: absolute;
             top: 50%;
             left: 50%;
@@ -33,12 +37,15 @@
             height: 300px;
             //border: 1px solid red;
         }
+
     </style>
 </head>
 
 <body>
     <span> </span>
-    <div id="timerSeconds" style="color:white;  font-size: 70"></div>
- </body>
+	<iframe width="480" height="220" frameborder="0" scrolling="no" hspace="0" src="https://i.tianqi.com/?c=code&a=getcode&id=9&py=nanjing&icon=1"></iframe>
+	<div id="timeDiv" style="color:gray; font-size: 70"></div>
+	<div id="dongDiv" style="color:gray; font-size: 70"></div>
+</body>
 
 </html>
