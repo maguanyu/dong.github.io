@@ -7,8 +7,8 @@
 			var offDate= (new Date(offTime));
             function CountDown() {
 				var now = new Date();
-				var time = now.toLocaleTimeString();
-				var date = now.toLocaleDateString();
+				var time = now.toLocaleTimeString('chinese', { hour12: false });
+				var date = now.toLocaleDateString().replace(/\//g,'-');
  
 				var count = offDate - now ;
 				var dong= '';
@@ -37,15 +37,26 @@
             height: 300px;
             //border: 1px solid red;
         }
+		 
 
     </style>
 </head>
 
 <body>
     <span> </span>
-	<iframe width="480" height="220" frameborder="0" scrolling="no" hspace="0" src="https://i.tianqi.com/?c=code&a=getcode&id=9&py=nanjing&icon=1"></iframe>
 	<div id="timeDiv" style="color:gray; font-size: 50"></div>
+	
+	<iframe width="480" height="220" frameborder="0" scrolling="no" hspace="0" src="https://i.tianqi.com/?c=code&a=getcode&id=9&py=nanjing&icon=1"></iframe>
+	<div id="baidu">
+		<form action="http://www.baidu.com/s" method="GET" target="_blank">
+			<input type="text" name="wd" size="50" />
+			<input type="submit" value="百度一下" />
+			<input type="hidden" name="ie" value="utf-8" />
+			<input type="hidden" name="tn" value="ace" />
+		</form>
+	</div>
 	<div id="dongDiv" style="color:gray; font-size: 70"></div>
+	
 </body>
 
 </html>
