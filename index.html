@@ -20,7 +20,8 @@
 					//clearInterval(timer);
 				}
 				document.getElementById("timeDiv").innerHTML = date+"&nbsp"+time;
-				document.getElementById("dongDiv").innerHTML = dong;
+				document.getElementById("section").innerHTML = dong;
+				document.querySelector(".order").innerHTML = '';
             }
             timer = setInterval("CountDown()", 1000);                
     </SCRIPT>
@@ -37,6 +38,33 @@
             height: 300px;
             //border: 1px solid red;
         }
+		
+		#header {
+			background-color:gray;
+			color:white;
+			text-align:center;
+			padding:5px;
+		}
+		#nav {
+			line-height:30px;
+			background-color:#eeeeee;
+			height:300px;
+			width:100px;
+			float:left;
+			padding:5px;	      
+		}
+		#section {
+			 
+			text-align:center;
+			padding:10px;	 	 
+		}
+		#footer {
+			background-color:gray;
+			color:white;
+			clear:both;
+			text-align:center;
+		    padding:5px;	 	 
+		}
 		 
 
     </style>
@@ -44,8 +72,10 @@
 
 <body>
     <span> </span>
+	<div id="header">
+		<h1>永续东</h1>
+	</div>
 	<div id="timeDiv" style="color:gray; font-size: 50"></div>
-	
 	<iframe width="480" height="220" frameborder="0" scrolling="no" hspace="0" src="https://i.tianqi.com/?c=code&a=getcode&id=14&py=nanjing&icon=1"></iframe>
 	<div id="baidu">
 		<form action="https://www.baidu.com/s" method="GET" target="_blank">
@@ -55,7 +85,13 @@
 			<input type="hidden" name="tn" value="ace" />
 		</form>
 	</div>
-	<div id="dongDiv" style="color:gray; font-size: 70"></div>
+	<div id="section" style="color:gray; font-size: 70"></div>
+	
+	<div id="footer">
+		Copyright ? maguanyu.github.io
+	</div>
+	
+	
 	
 </body>
 
