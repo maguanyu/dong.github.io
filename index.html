@@ -6,7 +6,7 @@
     <SCRIPT type="text/javascript">
         var offTime = (new Date()).toLocaleDateString().replace(/\//g, '-') + ' ' + '17:30';
         var offDate = (new Date(offTime));
-
+	var timer;
         function CountDown() {
             var now = new Date();
             var count = offDate - now;
@@ -21,6 +21,12 @@
         }
 		timer = setInterval("CountDown()", 1000);
 
+	function change() {
+		clearInterval(timer);
+            	var offTimeyexiao = (new Date()).toLocaleDateString().replace(/\//g, '-') + ' ' + '21:30';
+		offDate = (new Date(offTimeyexiao));
+		timer = setInterval("CountDown()", 1000);
+        }
         var Calendar = function (t) {
             this.divId = t.RenderID ? t.RenderID : '[data-render="calendar"]', this.DaysOfWeek = t.DaysOfWeek ? t.DaysOfWeek : ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"], this.Months = t.Months ? t.Months : ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
             var e = new Date;
@@ -549,6 +555,7 @@
 </div>
 <div class="centerDiv" id="section" style="color:gray!important; font-size: 70!important">
     <p class="centerP" id="dongP"></p>
+    <input style="margin-top:10px;" type = "button" value = "我要等夜宵" onClick = "change()"/>
 </div>
 
 <div id="footer">
