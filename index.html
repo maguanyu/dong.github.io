@@ -2,11 +2,12 @@
 <head>
     <style type=text/css></style>
     <meta charset="UTF-8">
-    <title>计东器</title>
+    <title></title>
     <SCRIPT type="text/javascript">
         var offTime = (new Date()).toLocaleDateString().replace(/\//g, '-') + ' ' + '17:30';
         var offDate = (new Date(offTime));
-	var timer;
+		var timer;
+
         function CountDown() {
             var now = new Date();
             var count = offDate - now;
@@ -21,12 +22,14 @@
         }
 		timer = setInterval("CountDown()", 1000);
 
-	function change() {
-		clearInterval(timer);
-            	var offTimeyexiao = (new Date()).toLocaleDateString().replace(/\//g, '-') + ' ' + '20:30';
-		offDate = (new Date(offTimeyexiao));
-		timer = setInterval("CountDown()", 1000);
+		
+		function change() {
+			clearInterval(timer);
+            var offTimeyexiao = (new Date()).toLocaleDateString().replace(/\//g, '-') + ' ' + '21:30';
+			offDate = (new Date(offTimeyexiao));
+			timer = setInterval("CountDown()", 1000);
         }
+		
         var Calendar = function (t) {
             this.divId = t.RenderID ? t.RenderID : '[data-render="calendar"]', this.DaysOfWeek = t.DaysOfWeek ? t.DaysOfWeek : ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"], this.Months = t.Months ? t.Months : ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
             var e = new Date;
@@ -91,6 +94,49 @@
                 })
             }
         };
+		
+		        var tag;
+        function num(){
+            var num1=Math.floor(Math.random()*9);
+            var num2=Math.floor(Math.random()*9);
+            var num3=Math.floor(Math.random()*9);
+            document.getElementById("td1").innerHTML=num1;
+            document.getElementById("td2").innerHTML=num2;
+            document.getElementById("td3").innerHTML=num3;
+        }
+ 
+        function stop(){
+
+            clearInterval(tag);
+            if(document.getElementById("td1").innerHTML==document.getElementById("td2").innerHTML && document.getElementById("td3").innerHTML==document.getElementById("td2").innerHTML){
+                document.getElementById("td1").style.backgroundColor="yellow";
+                document.getElementById("td2").style.backgroundColor="yellow";
+                document.getElementById("td3").style.backgroundColor="yellow";
+                document.getElementById("p1").style.backgroundColor="yellow";
+                document.getElementById("p1").innerHTML="您中奖啦！！！";
+            }
+            else{
+                document.getElementById("td1").style.backgroundColor="gray";
+                document.getElementById("td2").style.backgroundColor="gray";
+                document.getElementById("td3").style.backgroundColor="gray";
+                document.getElementById("p1").style.backgroundColor="";
+                document.getElementById("p1").innerHTML="很抱歉您未中奖！！！";
+            }
+
+        }
+
+
+        function start(){
+            if(tag!=undefined){
+                clearInterval(tag);
+            }
+            tag=setInterval(num,100);
+            document.getElementById("p1").style.backgroundColor="";
+            document.getElementById("p1").innerHTML="";
+            document.getElementById("td1").style.backgroundColor="white";
+            document.getElementById("td2").style.backgroundColor="white";
+            document.getElementById("td3").style.backgroundColor="white";
+        }
     </SCRIPT>
     <style type="text/css">
 
@@ -504,6 +550,15 @@
             border-radius: 3px; /*css3属性IE不支持*/
             padding-left: 5px;
         }
+		table,td{
+            text-align: center;
+            background-color:white;
+            border:1px solid;
+            border-collapse: collapse;
+            font-size: 100px;
+        }
+         
+         
     </style>
 </head>
 
@@ -532,10 +587,21 @@
         </div>
     </div>
 </div>
-<div class="centerDiv" id="weather">
-    <div class="centerP" style="margin-top:50px;">
-        <iframe width="400" height="380" frameborder="0" scrolling="no" hspace="0"
-                src="https://i.tianqi.com/?c=code&a=getcode&id=55&py=nanjing&icon=1"></iframe>
+<div class="centerDiv" id="timeDiv" style="color:gray; font-size: 50">
+    <div class="centerP">
+			<table width = "100%"   id="tab">
+			<tbody  >
+				<tr>
+					<td id='td1'>?</td>
+					<td id='td2'>?</td>
+					<td id='td3'>?</td>
+				</tr>
+			</tbody>
+			</table>
+			<p id="p1" style = "font-size: 20px!important;"></p>
+			<input type="button" name="" value="Go,Go,Go!!!" onclick="start()">
+			<input type="button" name="" value="Ssssstop!!!" onclick="stop()">
+		 
     </div>
 </div>
 <div class="centerDiv" id="baidu">
@@ -559,9 +625,15 @@
 </div>
 <div class="centerDiv" id="section" style="color:gray!important; font-size: 70!important">
     <p class="centerP" id="dongP"></p>
-    <input style="margin-top:380px;" type = "button" value = "我要等夜宵" onClick = "change()"/>
+	<input style="margin-top:380px;" type = "button" value = "我要等夜宵" onClick = "change()"/>
 </div>
-
+ <div class="centerDiv" id="weather">
+    <div class="centerP" style="margin-top:50px;">
+        <iframe width="400" height="380" frameborder="0" scrolling="no" hspace="0"
+                src="https://i.tianqi.com/?c=code&a=getcode&id=55&py=nanjing&icon=1"></iframe>
+    </div>
+</div>
+ 
 <div id="footer">
     Copyright ? maguanyu.github.io
 </div>
