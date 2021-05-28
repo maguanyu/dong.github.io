@@ -18,7 +18,7 @@ var offTime = (new Date()).toLocaleDateString().replace(/\//g, '-') + ' ' + '17:
 		
 		function change() {
 			clearInterval(timer);
-            var offTimeyexiao = (new Date()).toLocaleDateString().replace(/\//g, '-') + ' ' + '21:30';
+            var offTimeyexiao = (new Date()).toLocaleDateString().replace(/\//g, '-') + ' ' + '20:30';
 			offDate = (new Date(offTimeyexiao));
 			timer = setInterval("CountDown()", 1000);
         }
