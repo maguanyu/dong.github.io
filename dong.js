@@ -23,6 +23,13 @@ var offTime = (new Date()).toLocaleDateString().replace(/\//g, '-') + ' ' + '17:
 			timer = setInterval("CountDown()", 1000);
         }
 		
+		function changeBack() {
+			clearInterval(timer);
+            var offTimeyexiao = (new Date()).toLocaleDateString().replace(/\//g, '-') + ' ' + '17:30';
+			offDate = (new Date(offTimeyexiao));
+			timer = setInterval("CountDown()", 1000);
+        }
+		
         var Calendar = function (t) {
             this.divId = t.RenderID ? t.RenderID : '[data-render="calendar"]', this.DaysOfWeek = t.DaysOfWeek ? t.DaysOfWeek : ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"], this.Months = t.Months ? t.Months : ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
             var e = new Date;
@@ -121,7 +128,42 @@ var offTime = (new Date()).toLocaleDateString().replace(/\//g, '-') + ' ' + '17:
             }
 
         }
+		
+		var tagTow;
+		var count = 0;
+		function numTwo(){
+            
+			count = count + 0.001;
+            document.getElementById("tdTwo1").innerHTML=count.toFixed(3);
+        }
+		
+		
+		function startTwo(){
+            if(tagTow!=undefined){
+                clearInterval(tagTow);
+            }
+            tagTow=setInterval(numTwo,1);
+            document.getElementById("pTwo1").style.backgroundColor="";
+            document.getElementById("pTwo1").innerHTML="";
+            document.getElementById("tdTwo1").style.backgroundColor="white";
+        }
+		
+		function stopTwo(){
 
+            clearInterval(tagTow);
+            if(document.getElementById("tdTwo1").innerHTML=='1.00' ){
+                document.getElementById("tdTwo1").style.backgroundColor="yellow";
+                document.getElementById("pTwo1").style.backgroundColor="yellow";
+                document.getElementById("pTwo1").innerHTML="您中奖啦！！！";
+            }
+            else{
+                document.getElementById("tdTwo1").style.backgroundColor="gray";
+                document.getElementById("pTwo1").style.backgroundColor="";
+                document.getElementById("pTwo1").innerHTML="很抱歉您未中奖！！！";
+            }
+			count = 0;
+        }
+		
 
         function start(){
             if(tag!=undefined){
