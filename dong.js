@@ -151,7 +151,7 @@ var offTime = (new Date()).toLocaleDateString().replace(/\//g, '-') + ' ' + '17:
 		function stopTwo(){
 
             clearInterval(tagTow);
-            if(document.getElementById("tdTwo1").innerHTML=='1.00' ){
+            if(document.getElementById("tdTwo1").innerHTML=='1.000' ){
                 document.getElementById("tdTwo1").style.backgroundColor="yellow";
                 document.getElementById("pTwo1").style.backgroundColor="yellow";
                 document.getElementById("pTwo1").innerHTML="您中奖啦！！！";
