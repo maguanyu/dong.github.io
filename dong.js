@@ -100,11 +100,9 @@ var offTime = (new Date()).toLocaleDateString().replace(/\//g, '-') + ' ' + '17:
             var num1=Math.floor(Math.random()*9);
             var num2=Math.floor(Math.random()*9);
             var num3=Math.floor(Math.random()*9);
-			var num4=Math.floor(Math.random()*9);
             document.getElementById("td1").innerHTML=num1;
             document.getElementById("td2").innerHTML=num2;
             document.getElementById("td3").innerHTML=num3;
-			document.getElementById("td4").innerHTML=num4;
         }
  
         function stop(){
