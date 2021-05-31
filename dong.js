@@ -110,11 +110,10 @@ var offTime = (new Date()).toLocaleDateString().replace(/\//g, '-') + ' ' + '17:
         function stop(){
 
             clearInterval(tag);
-            if(document.getElementById("td1").innerHTML==document.getElementById("td2").innerHTML && document.getElementById("td3").innerHTML==document.getElementById("td2").innerHTML && document.getElementById("td4").innerHTML==document.getElementById("td3").innerHTML){
+            if(document.getElementById("td1").innerHTML==document.getElementById("td2").innerHTML && document.getElementById("td3").innerHTML==document.getElementById("td2").innerHTML){
                 document.getElementById("td1").style.backgroundColor="yellow";
                 document.getElementById("td2").style.backgroundColor="yellow";
                 document.getElementById("td3").style.backgroundColor="yellow";
-				document.getElementById("td4").style.backgroundColor="yellow";
                 document.getElementById("p1").style.backgroundColor="yellow";
                 document.getElementById("p1").innerHTML="您中奖啦！！！";
             }
@@ -122,7 +121,6 @@ var offTime = (new Date()).toLocaleDateString().replace(/\//g, '-') + ' ' + '17:
                 document.getElementById("td1").style.backgroundColor="gray";
                 document.getElementById("td2").style.backgroundColor="gray";
                 document.getElementById("td3").style.backgroundColor="gray";
-				document.getElementById("td4").style.backgroundColor="gray";
                 document.getElementById("p1").style.backgroundColor="";
                 document.getElementById("p1").innerHTML="很抱歉您未中奖！！！";
             }
@@ -175,5 +173,4 @@ var offTime = (new Date()).toLocaleDateString().replace(/\//g, '-') + ' ' + '17:
             document.getElementById("td1").style.backgroundColor="white";
             document.getElementById("td2").style.backgroundColor="white";
             document.getElementById("td3").style.backgroundColor="white";
-			document.getElementById("td4").style.backgroundColor="white";
         }
